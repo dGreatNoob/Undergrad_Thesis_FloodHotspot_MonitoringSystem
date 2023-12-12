@@ -1,0 +1,5 @@
+Information to send in database:
+
+Device Information (Board model; Device Name; Device Status; Battery Status)
+GPS information (Coordinates)
+Sensor Reading (Flood Level; Flood Status (Decreasing/Increasing))

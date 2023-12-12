@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Hotspot Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    
+    <!---------------Graph123123123---------------->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Minor',     7],
+          ['Severe',      2],
+          ['Moderate',  4],
+        ]);
+// sdagfdyhhfhjkgkgjkgj
+        var options = {
+            backgroundColor: 'transparent',
+            title: 'Flood Occured: ',
+            is3D: true,
+            chartArea: {
+                width: '90%',
+                height: '85%' 
+            },
+            titleTextStyle: {
+                color: 'white',
+                fontSize: 18 
+            },
+            legendTextStyle: {
+                 color: 'white',
+                 fontSize: 14
+            }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('PieChart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Minor', 'Severe', 'Moderate'],
+                ['2019', 1000, 400, 200],
+                ['2020', 1170, 460, 250],
+                ['2021', 660, 300, 769],
+                ['2022', 1030, 540, 350]
+    ]);
+
+    var options = {
+        backgroundColor: 'transparent',
+        title: 'Data of Flood Occured:',
+        titleTextStyle: {
+        color: 'white',
+        fontSize: 18 
+        },
+        chart: {
+            title: 'Flood',
+            subtitle: '2019-2022',
+        },
+        legend: {
+            textStyle: {
+            color: 'white',
+            fontSize: 14 
+            }
+        },
+        hAxis: {
+            title: 'Year',
+            textStyle: {
+            color: 'white',
+            fontSize: 10 
+            }
+        },
+        vAxis: {
+            title: 'Numbers of Flood Occured',
+            titleTextStyle: {
+            color: 'white',
+            fontSize: 18
+            }, 
+            textStyle: {
+            color: 'white',
+            fontSize: 11 
+            }
+        }
+    };
+
+        var chart = new google.charts.Bar(document.getElementById('BarGraph'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+     }
+    </script>
+    <!-- ----------------------------------->
+
+    <!-- ---------------Map-------------- -->
+    <style>
+        /* Add any custom styles for your map container _this is a test update*/
+        #map-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <!-- ----------------------------------->
+</head>
+<body>
+    <header>
+        <a href="#" class="name">Flood Monitoring System</a>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#map">Map</a>
+            <a href="#graph">Analytics</a>
+            <!-- Add this button in your HTML, preferably inside the header -->
+            <div id="toggle-database-panel" onclick="toggleDatabasePanel()">☰</div>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div id="weather-container">
+            <div class="searchbox">
+                <input type="text" placeholder="Enter city Name" id="searchinput">
+               <i class="fa-solid fa-magnifying-glass" id="serchbox"></i>
+           </div>
+
+           <!-- <h4 id="error"> Page Not found </h4> -->
+
+           <div class="body" id="body_data">
+               <img src="image/cloud.png" alt="" id="body_img">
+                  <h2 id="temp">22
+               </h2>
+               <h3 id="city">New Yourk</h3>
+                   
+           </div>
+
+
+           <div class="deatil" id="deatil">
+               <div class="col">
+                   <i class="fa-solid fa-droplet"></i>
+                   <div>
+                   <h5 id="humidity">50%</h5>
+                   <p >humidity</p>
+               </div>
+               </div>
+               <div class="col">
+                  
+                   <i class="fa-solid fa-wind"></i>
+                     <div>
+                   <h5 id="windspeed">15  km/h</h5>
+                   <p>wind speed</p>
+               </div>
+               
+               </div>
+           </div>
+        </div>
+
+        <div id="about-container">
+            <h3>ABOUT</h3>
+            <h3>ABOUT</h3>
+        </div>
+        <div id="content-container">
+            <p><span>Flood Hotspot Monitoring System</span> is a comprehensive solution that employs sensor networks, remote sensing technologies, and advanced analytics to detect, monitor, and manage flood-prone areas. Utilizing a network of strategically placed sensors, satellite imagery, and weather forecasts, the system integrates diverse data sources to create a holistic understanding of environmental conditions contributing to flood risks. Geographic Information System (GIS) technology maps vulnerable areas, while machine learning algorithms enhance predictive modeling for early warning systems. </p>
+        </div>
+    </section>
+
+    <section id="map">
+        <div id="map-container"></div>
+        <div id="database-panel">
+            <!-- Database information content goes here -->
+            <h2>Database Information</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo ullamcorper mi, nec cursus tortor scelerisque vel. Proin vel urna vel justo imperdiet vestibulum vel id velit. Nullam ultrices massa vitae tellus eleifend, vel vehicula justo tincidunt. Ut eu hendrerit metus. Vivamus eget neque nec nisi finibus ultricies sit amet eget elit. Phasellus vel nunc vitae odio tempor ullamcorper. Quisque ut elit sed velit interdum imperdiet at vel tellus. Sed dapibus urna nec lectus ultrices, eu auctor ipsum lacinia."</p>
+        </div>
+    </section>
+
+    <section id="graph">
+        <div class="graph1-container">
+        <div id="PieChart" class="chart1"></div>
+        </div>
+
+        <div class="graph2-container">
+            <div id="BarGraph" class="chart2"></div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Function to scroll to a specific section
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Scroll to the "home" section on page load
+        scrollToSection('home');
+    </script>
+</body>
+</html>
