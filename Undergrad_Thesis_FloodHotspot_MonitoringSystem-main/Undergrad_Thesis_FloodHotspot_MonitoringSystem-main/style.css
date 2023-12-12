@@ -58,29 +58,40 @@ section:nth-child(odd) {
     background: #323946;
 }     
 
-#weather-container{
+#weather-container {
+    position: relative;
     width: 400px;
-    height: 500px;
+    height: 70vh;
     background-color: #808080; /* Gray background color */
     border: 2px solid #555; /* Darker blue border */
     border-radius: 30px; /* Rounded corners */
-    margin: 20px; /* Margin to create space around the box */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    transform: translate(-90%, 10%);
-    color: #fff; /* Text color */
-    font-size: 40px;
-    text-align: center;
-    line-height: 1.5; 
+    margin-top: 100px; /* Margin to create space around the box */
+    margin-right: auto; /* Auto margin for centering horizontally */
+    margin-bottom: 20px;
+    margin-left: 9%; /* Adjust the percentage to move it more to the left */
+    z-index: 500;
+    overflow: hidden;
+}
+#weather-container img {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .searchbox
 {
     display: flex;
-    margin: 20px 60px;
-   gap: 20px;
+    transform: translate( 7%, 10%);
+    margin: 30px 60px;
+    gap: 20px;
     align-items: center;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 .searchbox input
 {
@@ -91,18 +102,17 @@ section:nth-child(odd) {
     border-radius: 10px;
     padding-left: 10px;
     font-size: 15px;
-
-
+    background: transparent;
 }
 .searchbox i 
 {
     /* background-color: white; */
     padding: 8px 8px;
-    font-size: 17px;
+    font-size: 20px;
     border-radius: 20px;
 }
 
-.body
+.season
 {
     display: flex;
     justify-content: center;
@@ -112,23 +122,18 @@ section:nth-child(odd) {
     margin-bottom: 40px;
 }
 
-.body img 
-{
-   width: 140px;
-}
-
-.body h2 
+.season h2 
 {
     font-size: 35px;
-    color: white;
+    color: #f0f9ff;
     font-weight: bold;
 
 }
 
-.body h3 
+.season h3 
 {
-    font-size: 22px;
-    color: white;
+    font-size: 45px;
+    color: #f0f9ff;
     font-weight: bold;
 }
 
@@ -138,44 +143,46 @@ section:nth-child(odd) {
     justify-content: space-around;
     margin-top: 20px;
     padding-bottom: 50px;
+    z-index: 1;
 }
 
-
-.col{
+.detail{
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 50px;
+    z-index: 1;
 }
 
-.col i 
+.detail i 
 {
-    font-size: 25px;
-    color: rgb(50, 45, 45);
+    font-size: 50px;
+    color: #f0f9ff;
     
 }
 
 
-.col h5 
+.detail h5 
 {
-    font-size: 18px;
-    color: white;
+    font-size: 30px;
+    color: #f0f9ff;
    
 }
-.col p 
+.detail p 
 {
-    font-size: 17px;
-    color: white;
+    font-size: 25px;
+    color: #f0f9ff;
 }
 
 
-.deatil
+/* .deatil
 {
     display: none;
 }
 .body
 {
     display: none;
-}
+} */
 
 /* #error
 {
@@ -192,7 +199,7 @@ section:nth-child(odd) {
 
 #about-container h3{
     position: absolute;
-    transform: translate( -75%, -130%);
+    transform: translate( -244%, -130%);
     font-size: 1.2em;
     
 }
